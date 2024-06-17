@@ -1,0 +1,8 @@
+<form class="w-[500px] flex flex-col gap-4" enctype="multipart/form-data" (ngSubmit)="publish()">
+  <h1>Publish new Report</h1>
+  <input type="file" name="Source_File" (change)="handleUploadFile($event)">
+  <input type="text" name="title" [(ngModel)]="title" placeholder="Title">
+  <input type="email" name="email" [(ngModel)]="email" placeholder="Your email">
+  <button type="submit">Submit</button>
+  <button (click)="downloadFile()">download</button>
+</form>
