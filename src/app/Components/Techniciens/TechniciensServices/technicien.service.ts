@@ -23,10 +23,12 @@ export class TechnicienService {
     return this.httpClient.post(`${this.ApiEndpoint} createNewDataSource `,formData,{
       withCredentials:true
     });
-
   }
 
-
+  
+  getAllClientsReportsDemands(){
+    return this.httpClient.get( `${this.ApiEndpoint}getClientsDemands`,{withCredentials:true})
+    }
 
 
 

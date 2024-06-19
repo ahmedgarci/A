@@ -1,8 +1,30 @@
 <form class="w-[500px] flex flex-col gap-4" enctype="multipart/form-data" (ngSubmit)="publish()">
   <h1>Publish new Report</h1>
+  <div class="mb-2">
+    <label class="block text-gray-700 text-sm font-bold mb-2 text-start" for="password">
+      Title
+    </label>
+    <input class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700  leading-tight focus:outline-none focus:shadow-outline"
+           name="title"
+           [(ngModel)]="title"
+           type="text"
+           placeholder="Title Of Report"
+    >
+  </div>
+  <div class="mb-2">
+    <label class="block text-gray-700 text-sm font-bold mb-2 text-start" for="password">
+      email
+    </label>
+    <input class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700  leading-tight focus:outline-none focus:shadow-outline"
+           name="email"
+           type="email"
+           [(ngModel)]="email"
+           placeholder="Client email"
+    >
+  </div>
   <input type="file" name="Source_File" (change)="handleUploadFile($event)">
-  <input type="text" name="title" [(ngModel)]="title" placeholder="Title">
-  <input type="email" name="email" [(ngModel)]="email" placeholder="Your email">
-  <button type="submit">Submit</button>
-  <button (click)="downloadFile()">download</button>
+
+
+  <p *ngIf="error" class=" text-red-500 font-medium text-start">{{error}}</p>
+  <button type="submit" class="bg-red-600  py-3 px-4 text-white rounded">Submit</button>
 </form>

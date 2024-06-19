@@ -23,8 +23,16 @@ export class AuthComponent {
 
   LogUser() {
     this.authService.LoginUser(this.email,this.password).subscribe({
-      next: (response)=> console.log(response),
-      error: (errorObject:any)=>console.log(errorObject)
+      next: (response)=>{
+        console.log(response)
+         if (response === "ADMIN"){
+          this.router.navigate(["/Admin"])
+         }else if ( response === "TECHNICIEN"){
+          this.router.navigate(["/Techniciens"])
+         }
+
+    },
+      error: (errorObject:any)=> this.error =errorObject.error
     })
 
   }

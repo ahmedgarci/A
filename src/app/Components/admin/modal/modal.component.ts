@@ -19,7 +19,7 @@ export class ModalComponent {
   password:string=""
   role:string="";
   showModal:boolean=false;
-
+  error:string|null=null
   constructor(private  AdminService:AdminService) {
   }
   openModal(){
@@ -33,7 +33,7 @@ export class ModalComponent {
       Role:this.role})
       .subscribe({
         next:(data)=>console.log(data),
-        error:(err)=>console.log(err)
+        error:(err)=>this.error=err.error
       })
   }
 

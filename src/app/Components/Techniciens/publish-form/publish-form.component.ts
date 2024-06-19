@@ -2,10 +2,12 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TechnicienService } from '../TechniciensServices/technicien.service';
 import { saveAs } from 'file-saver';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-publish-form',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,
+  CommonModule],
   templateUrl: './publish-form.component.html',
   styleUrls: ['./publish-form.component.css']
 })
@@ -13,7 +15,7 @@ export class PublishFormComponent {
   file: File | null = null;
   title: string = '';
   email: string = '';
-
+  error:string|null="";
   constructor(private technicienService: TechnicienService
               ) {}
 
@@ -32,7 +34,7 @@ export class PublishFormComponent {
 
       this.technicienService.PublishReport(formData).subscribe({
         next: (response) => console.log(response),
-        error: (error) => console.error(error)
+        error: (errorResponse) =>this.error= errorResponse.error
       });
     }
   }
