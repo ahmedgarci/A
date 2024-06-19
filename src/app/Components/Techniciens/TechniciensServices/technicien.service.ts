@@ -18,4 +18,16 @@ export class TechnicienService {
   downloadFile(): Observable<Blob> {
     return this.httpClient.get(`${this.ApiEndpoint}download`, { responseType: 'blob' });
   }
+
+  CreateNewDataSource(formData:FormData){
+    return this.httpClient.post(`${this.ApiEndpoint} createNewDataSource `,formData,{
+      withCredentials:true
+    });
+
+  }
+
+
+
+
+
 }
