@@ -1,0 +1,92 @@
+<form class="flex flex-col gap-4 w-[600px] h-[500px] p-5" (ngSubmit)="SendDemand()">
+  <div class="mb-2">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+      Driver
+    </label>
+    <input class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700  leading-tight focus:outline-none focus:shadow-outline"
+           name="driver"
+           id="password"
+           type="text"
+           placeholder="Driver"
+           [(ngModel)]="driver"
+    >
+  </div>
+  <div class="mb-2">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+      Host
+    </label>
+    <input class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700  leading-tight focus:outline-none focus:shadow-outline"
+           name="host"
+           id="password"
+           type="text"
+           placeholder="host"
+           [(ngModel)]="host"
+    >
+  </div>
+  <div class="mb-2">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+      username
+    </label>
+    <input class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700  leading-tight focus:outline-none focus:shadow-outline"
+           name="username"
+           id="username"
+           type="username"
+           placeholder="username"
+           [(ngModel)]="username"
+    >
+  </div>
+  <div class="mb-2">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+      Password
+    </label>
+    <input class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700  leading-tight focus:outline-none focus:shadow-outline"
+           name="password"
+           id="password"
+           type="password"
+           placeholder="******************"
+           [(ngModel)]="password"
+    >
+  </div>
+
+  <div class="mb-2">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+     Database
+    </label>
+    <input class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700  leading-tight focus:outline-none focus:shadow-outline"
+           name="DB"
+           id="DB"
+           type="text"
+           placeholder="DataBase"
+           [(ngModel)]="DB"
+    >
+  </div>
+  <div class="mb-2">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+      Table
+    </label>
+    <input class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700  leading-tight focus:outline-none focus:shadow-outline"
+           name="table"
+           id="email"
+           type="text"
+           placeholder="Table"
+           [(ngModel)]="table"
+    >
+  </div>
+
+  <div class="mb-2">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+      Email Technician
+    </label>
+    <input class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700  leading-tight focus:outline-none focus:shadow-outline"
+           name="email"
+           id="email"
+           type="email"
+           placeholder="email"
+           [(ngModel)]="email"
+    >
+  </div>
+  <button type="submit" class="w-full bg-sky-600 py-2 text-white rounded-md">
+    Submit
+  </button>
+  <br>
+</form>

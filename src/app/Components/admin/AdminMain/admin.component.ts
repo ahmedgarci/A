@@ -2,20 +2,22 @@ import {Component, OnInit} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {AdminService} from "../AdminServices/admin.service";
 import  {ModalComponent} from "../modal/modal.component";
-
+import {MatButtonModule} from '@angular/material/button';
+import {  MatDialog} from '@angular/material/dialog';
 @Component({
   selector: 'app-admin',
   standalone: true,
   imports: [
     CommonModule,
-    ModalComponent
+    ModalComponent,
+    MatButtonModule
   ],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
 })
 export class AdminComponent implements OnInit{
   users:any[]|null=null;
-  constructor(private AdminService:AdminService) {
+  constructor(private AdminService:AdminService,private dialog:MatDialog) {
   }
   getData(){
     this.AdminService.getUsers().subscribe({
@@ -34,9 +36,10 @@ export class AdminComponent implements OnInit{
       error:(err)=>console.log(err)
     })
   }
-
-
-
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ModalComponent);
+    console.log(dialogRef);
+  }
 
   protected readonly console = console;
 }

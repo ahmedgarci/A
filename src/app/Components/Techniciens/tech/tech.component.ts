@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import {PublishFormComponent} from "../publish-form/publish-form.component";
-import {CommonModule} from "@angular/common";
+import { Component} from '@angular/core';
+import { PublishFormComponent } from "../publish-form/publish-form.component";
+import { CommonModule } from "@angular/common";
 import { GenerateReportComponent } from '../generate-report/generate-report.component';
-import { RouterLink } from '@angular/router';
+import { RouterLink, ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-tech',
   standalone: true,
@@ -10,19 +11,25 @@ import { RouterLink } from '@angular/router';
     PublishFormComponent,
     CommonModule,
     GenerateReportComponent,
-    RouterLink
+    RouterLink,
   ],
   templateUrl: './tech.component.html',
-  styleUrl: './tech.component.css'
+  styleUrls: ['./tech.component.css']
 })
 export class TechComponent {
-  showPublishForm:boolean=false;
-  showGenerateReport:boolean= false
-  setshowPublishForm(){
-    this.showPublishForm=!this.showPublishForm
-  }
-  setshowGenerateReport(){
-    this.showGenerateReport =!this.showGenerateReport;
+  constructor(private route: ActivatedRoute) {}
+  setActiveRoute(): string {
+    let subpage: string = this.route.snapshot.params['subpage'];
+    if (!subpage || subpage === undefined) {
+      subpage = 'Demandes';
+    }
+    return subpage;
   }
 
+  setActiveClass(Page:string) : string {
+    let subpage: string = this.setActiveRoute();
+    let style: string = " text-white py-3 text-center w-[200px] rounded-md";
+    return subpage=== Page ? `${style} bg-sky-500`: `${style} bg-black` ;
+  }
 }
+

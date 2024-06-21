@@ -28,7 +28,7 @@ export class AuthComponent {
          if (response === "ADMIN"){
           this.router.navigate(["/Admin"])
          }else if ( response === "TECHNICIEN"){
-          this.router.navigate(["/Techniciens"])
+          this.router.navigate(["/Techniciens/Publish"])
          }
 
     },

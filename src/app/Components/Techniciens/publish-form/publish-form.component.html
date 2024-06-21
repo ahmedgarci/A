@@ -1,5 +1,6 @@
+<div class="flex flex-col items-center h-screen mt-10 ">
 <form class="w-[500px] flex flex-col gap-4" enctype="multipart/form-data" (ngSubmit)="publish()">
-  <h1>Publish new Report</h1>
+  <p class="text-center text-lg font-semibold">Publish new Report</p>
   <div class="mb-2">
     <label class="block text-gray-700 text-sm font-bold mb-2 text-start" for="password">
       Title
@@ -28,3 +29,4 @@
   <p *ngIf="error" class=" text-red-500 font-medium text-start">{{error}}</p>
   <button type="submit" class="bg-red-600  py-3 px-4 text-white rounded">Submit</button>
 </form>
+</div>

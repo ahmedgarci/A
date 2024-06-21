@@ -6,9 +6,8 @@ import { ClientComponent } from './Components/client/client.component';
 export const routes: Routes = [
   {path:'home', component:AuthComponent},
   {path:'Admin',component:AdminComponent},
-  {path:'Techniciens',component:TechComponent},
+  {path:'Techniciens/:subpage',component:TechComponent},
   {path:'Client',component:ClientComponent},
-  {path:'Techniciens/demandes',component:TechComponent}
 
 ];
 

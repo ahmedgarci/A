@@ -34,7 +34,7 @@ export class PublishFormComponent {
 
       this.technicienService.PublishReport(formData).subscribe({
         next: (response) => console.log(response),
-        error: (errorResponse) =>this.error= errorResponse.error
+        error: (error) => this.error=error
       });
     }
   }

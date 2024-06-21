@@ -25,9 +25,9 @@ export class TechnicienService {
     });
   }
 
-  
+
   getAllClientsReportsDemands(){
-    return this.httpClient.get( `${this.ApiEndpoint}getClientsDemands`,{withCredentials:true})
+    return this.httpClient.get( `${this.ApiEndpoint}showDemands`,{withCredentials:true})
     }
 
 
