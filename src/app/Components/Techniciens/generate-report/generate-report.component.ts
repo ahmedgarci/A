@@ -17,12 +17,4 @@ export class GenerateReportComponent implements OnInit {
     this.TechService.getAllClientsReportsDemands().subscribe({
       next:(result)=>console.log(result),
       error:(error)=>console.log(error)
-    })
-  }
-
-  
-
-
-
-
-}
+  })}}
