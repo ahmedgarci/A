@@ -1,0 +1,19 @@
+<section>
+  <label class="w-screen">
+    <input class="peer/showLabel absolute scale-0" type="checkbox" />
+    <span class="block max-h-14 w-full overflow-hidden rounded-lg px-4 py-0 text-black shadow-lg transition-all duration-300 peer-checked/showLabel:max-h-52">
+      <h3 class="flex h-18 cursor-pointer items-center font-semibold ">Demande de : {{singleDemande?.client.email}} - {{singleDemande?.client.username }}</h3>
+      <p>Driver : {{singleDemande.driver}} </p>
+      <p>Host : {{singleDemande.host}}</p>
+      <p>Database : {{singleDemande.DB}}</p>
+      <p>Username : {{singleDemande.username}}</p>
+      <p>Password : {{singleDemande.password}}</p>
+      <p *ngIf=" BackEndError" [ngClass]="{'text-red-500' : BackEndError, 'text-green-500': BackEndResponse }">{{BackEndResponse}}</p>
+      <button class="w-full bg-black mb-4 text-white h-10" (click)="Generate()">Generer</button>
+    </span>
+  </label>
+</section>
+
+
+
+

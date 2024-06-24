@@ -14,10 +14,8 @@ import { FormDBComponent } from './form-db/form-db.component';
 })
 export class ClientComponent implements OnInit {
   pdfSrc = "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf";
-
-  constructor(private ClientService:ClientService,private dialog:MatDialog){
-//      this.pdfsrc = 'http://localhost:8080/public/uploads/example-6672ac530f438.pdf';
-}
+  readonly BackendApi="http://localhost:8080/reports/";
+  constructor(private ClientService:ClientService,private dialog:MatDialog){}
 
   Reports:Array<any>=[];
 
@@ -34,7 +32,9 @@ export class ClientComponent implements OnInit {
     this.dialog.open(FormDBComponent);
   }
 
-
+  getReportPath(Path:string){
+    return this.BackendApi +`${Path}`
+  }
 
 
 

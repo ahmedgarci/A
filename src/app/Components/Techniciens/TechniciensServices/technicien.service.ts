@@ -15,9 +15,6 @@ export class TechnicienService {
       withCredentials: true
     });
   }
-  downloadFile(): Observable<Blob> {
-    return this.httpClient.get(`${this.ApiEndpoint}download`, { responseType: 'blob' });
-  }
 
   CreateNewDataSource(formData:FormData){
     return this.httpClient.post(`${this.ApiEndpoint} createNewDataSource `,formData,{
@@ -25,11 +22,17 @@ export class TechnicienService {
     });
   }
 
-
   getAllClientsReportsDemands(){
     return this.httpClient.get( `${this.ApiEndpoint}showDemands`,{withCredentials:true})
     }
 
+    GenerateReport(DBInfo:any){
+      return this.httpClient.post(`${this.ApiEndpoint}GenererRapportAvecDB`,{DBInfo},{
+        withCredentials:true
+      },
+      )
+    }
 
 
-}
+
+  }

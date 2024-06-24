@@ -5,8 +5,9 @@
   color="primary" mat-flat-button
   (click)="openDialog()"
   >+</button>
-  <p *ngIf="Reports && Reports.length === 0">pas de rapports disponible</p>
-
+  <br>
+  <p *ngIf="Reports && Reports.length === 0 ;else showAll " class="text-center">pas de rapports disponible</p>
+  <ng-template #showAll>
   <table class="mx-auto mt-5 w-3/4">
     <thead>
       <th>Report Title</th>
@@ -18,17 +19,10 @@
       <th >{{report.title}}</th>
       <th>12/12/2024</th>
       <th><a [href]="pdfSrc" download="file.pdf" color="warn" mat-button>View Report</a></th>
-    <!--  <a href="http://localhost:8080/uploads/example-6672ac530f438.pdf" download="file.pdf">aaaaaaaaaaaaa</a> -->
+      <a [attr.href]="getReportPath(report.Report_Path)" download="file.pdf">Download Report</a>
 
         </tr>
     </tbody>
   </table>
+</ng-template>
 
-<!--
-    <pdf-viewer [src]="pdfsrc"
-[render-text]="true"
-[original-size]="false"
-class="mx-auto"
-style="width: 80%; height:100vh"
-></pdf-viewer>
--->

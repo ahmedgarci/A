@@ -20,7 +20,6 @@ export class AuthComponent {
   error:string|null=null;
   constructor(private authService:AuthService,private router:Router ) {}
 
-
   LogUser() {
     this.authService.LoginUser(this.email,this.password).subscribe({
       next: (response)=>{

@@ -15,7 +15,7 @@ export class PublishFormComponent {
   file: File | null = null;
   title: string = '';
   email: string = '';
-  error:string|null="";
+  msg:string|null="";
   constructor(private technicienService: TechnicienService
               ) {}
 
@@ -33,21 +33,12 @@ export class PublishFormComponent {
       formData.append('email', this.email);
 
       this.technicienService.PublishReport(formData).subscribe({
-        next: (response) => console.log(response),
-        error: (error) => this.error=error
+        next: (response:any) => this.msg=response,
+        error: (error) => this.msg=error
       });
     }
   }
-  downloadFile() {
-    this.technicienService.downloadFile().subscribe({
-      next: (response) => {
-        const blob = new Blob([response], { type: 'application/pdf' });
-        console.log(response)
-        saveAs(blob, 'example.pdf');
-        console.log("Download successful");
-      },
-      error: (error) => console.error('Error downloading the PDF', error)
-    });
+
   }
 
-}
+
