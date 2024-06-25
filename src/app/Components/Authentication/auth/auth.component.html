@@ -1,42 +1,37 @@
-<div class="bg-black bg-opacity-90 w-full justify-center flex flex-col items-center h-screen">
+<div class="bg-blue-100 bg-opacity-90 w-full justify-center flex flex-col items-center h-screen">
   <div class="w-full max-w-xs">
-    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <form class="bg-white shadow-md rounded px-4 pt-8 pb-10 pl-15 pr-15">
+      <div class="flex items-center justify-center"><img src="https://cdn-icons-png.flaticon.com/128/14234/14234658.png"
+          class="w-20 h-20"></div>
       <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+        <label class="block text-gray-700 text-sm font-bold" for="email">
           Email
         </label>
-        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-               id="email"
-               name="email"
-               type="text"
-               placeholder="Email Adresse"
-               [(ngModel)]="email"
-        >
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="email" name="email" type="text" placeholder="Email Adresse" [(ngModel)]="email">
       </div>
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
           Password
         </label>
-        <input class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700  leading-tight focus:outline-none focus:shadow-outline"
-               name="password"
-               id="password"
-               type="password"
-               placeholder="******************"
-               [(ngModel)]="password"
-        >
+        <input
+          class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700  leading-tight focus:outline-none focus:shadow-outline"
+          name="password" id="password" type="password" placeholder="******************" [(ngModel)]="password">
       </div>
       <p *ngIf="error" class=" text-red-500 font-medium ">{{error}}</p>
       <div class="flex items-center justify-between">
-        <button class="bg-blue-500 hover:bg-blue-700 w-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                type="submit"
-                (click)="LogUser()"
-        >
+        <button
+          class="bg-blue-500 hover:bg-blue-700 w-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="submit" (click)="LogUser()">
           Sign In
         </button>
 
       </div>
     </form>
-
   </div>
-
 </div>
+<footer class="bg-gray-400 w-full mb-5">
+  <hr class="border-gray-600">
+  <div class="text-center pb-10 pt-3">&copy; Generate Reports 2024</div>
+</footer>

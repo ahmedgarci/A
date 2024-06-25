@@ -32,3 +32,4 @@ export class GenerateReportComponent implements OnInit {
 
 
 }
+
