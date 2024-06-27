@@ -16,12 +16,12 @@ import {  MatDialog} from '@angular/material/dialog';
   styleUrl: './admin.component.css'
 })
 export class AdminComponent implements OnInit{
-  users:any[]|null=null;
+  users:any[]=[];
   constructor(private AdminService:AdminService,private dialog:MatDialog) {
   }
   getData(){
     this.AdminService.getUsers().subscribe({
-      next: (data) => this.users =[...data.Clients, ...data.Techs],
+      next: (data) => this.users =[...data.Clients, ...data.Techs] ?? [],
       error: (error) => console.log(error)
     })
   }
@@ -32,7 +32,7 @@ export class AdminComponent implements OnInit{
 
   delete(id:number){
     this.AdminService.deleteUser(id).subscribe({
-      next:(data)=>console.log(data),
+      next:()=> this.users=this.users?.filter(user=>user.id !== id),
       error:(err)=>console.log(err)
     })
   }

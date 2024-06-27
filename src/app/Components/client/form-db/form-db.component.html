@@ -60,6 +60,22 @@
            [(ngModel)]="DB"
     >
   </div>
+
+  <div class="mb-2">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="port">
+     Port
+    </label>
+    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+           name="port"
+           id="port"
+           type="number"
+           placeholder="Database Port"
+           [(ngModel)]="Port"
+           min="0"
+    >
+  </div>
+
+
   <div class="mb-2">
     <label class="block text-gray-700 text-sm font-bold mb-2" for="table">
       Table
@@ -84,8 +100,7 @@
            [(ngModel)]="email"
     >
   </div>
-  <p *ngIf="msg" class="text-green-600 font-medium ">{{msg}}</p>
-  <p>Columns : </p>
+  <label class="block text-gray-700 text-sm font-bold" > Columns</label>
   <div class="flex ">
     <input type="text"
     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -102,6 +117,9 @@
     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
 
   </div>
+  <p *ngIf="msg" class="text-green-600 font-medium ">{{msg}}</p>
+  <p *ngIf="error" class="text-red-600 font-medium ">{{error}}</p>
+
   <button type="submit" class="w-full bg-sky-600 py-2 text-white rounded-md">
     Submit
   </button>

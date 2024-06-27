@@ -18,11 +18,12 @@ export class FormDBComponent {
   email:string="";
   table:string ="";
   DB:string="";
+  Port:number=0;
   column1:string|null=null
   column2:string|null=null
   column3:string|null=null
   msg:string=""
-
+  error:string=""
   SendDemand(){
     this.clientService.DemanderGeneartionRapport(
       this.username,
@@ -32,10 +33,11 @@ export class FormDBComponent {
       this.DB,
       this.email,
       this.table,
+      this.Port,
       [this.column1,this.column2,this.column3]
     ).subscribe({
-      next:(data)=> console.log(data)   ,
-      error:(error)=>console.log(error)
+      next:(data:any)=> this.msg=data ,
+      error:(errorObject)=> this.error = errorObject.error
     })
   }
 }

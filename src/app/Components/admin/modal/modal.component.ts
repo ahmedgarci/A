@@ -31,7 +31,7 @@ export class ModalComponent {
       password:this.password,
       Role:this.role})
       .subscribe({
-        next:(data)=>console.log(data),
+        next:(data)=>location.reload(),
         error:(err)=>this.error=err.error
       })
   }

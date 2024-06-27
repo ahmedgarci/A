@@ -20,7 +20,6 @@ export class GenerateReportComponent implements OnInit {
   ngOnInit(): void {
     this.TechService.getAllClientsReportsDemands().subscribe({
       next:(result:any)=>{
-        console.log(JSON.parse(result))
         this.Demands = JSON.parse(result)
       },
       error:(error)=>console.log(error)
