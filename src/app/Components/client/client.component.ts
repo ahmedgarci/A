@@ -13,28 +13,29 @@ import { FormDBComponent } from './form-db/form-db.component';
   styleUrl: './client.component.css'
 })
 export class ClientComponent implements OnInit {
-  pdfSrc = "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf";
-  readonly BackendApi="http://localhost:8080/reports/";
+  BackendApi="http://localhost:8080/reports/";
   constructor(private ClientService:ClientService,private dialog:MatDialog){}
-
   Reports:Array<any>=[];
+
 
   ngOnInit(): void {
      this.ClientService.getMyReports().subscribe({
-      next:(response:any)=> this.Reports = [...response],
+      next:(response:any)=>{
+        console.log(response)
+       this.Reports = [...response]},
       error:(errorResponse)=> console.log(errorResponse)
-
-
      })
+   //  this.ClientService.getMySources().subscribe({
+   //   next:(response)=>console.log(response),
+   //   error:(error)=>console.log(error)
+   //  })
   }
 
   openDialog(): void {
     this.dialog.open(FormDBComponent);
   }
 
-  getReportPath(Path:string){
-    return this.BackendApi +`${Path}`
-  }
+
 
 
 

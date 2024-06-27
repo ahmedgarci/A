@@ -15,7 +15,7 @@ export class PublishFormComponent {
   file: File | null = null;
   title: string = '';
   email: string = '';
-  msg:string|null="";
+  msg:string|null=null;
   constructor(private technicienService: TechnicienService
               ) {}
 
@@ -33,8 +33,8 @@ export class PublishFormComponent {
       formData.append('email', this.email);
 
       this.technicienService.PublishReport(formData).subscribe({
-        next: (response:any) => this.msg=response,
-        error: (error) => this.msg=error
+        next: (response:any) => this.msg = response,
+        error: (error) => this.msg = error.error
       });
     }
   }

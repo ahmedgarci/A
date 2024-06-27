@@ -23,10 +23,10 @@
            placeholder="Client email"
     >
   </div>
-  <input type="file" name="Source_File" (change)="handleUploadFile($event)">
+  <input type="file" name="Source_File" (change)="handleUploadFile($event)" accept=".pdf">
 
 
-  <p *ngIf="msg" class=" text-red-500 font-medium text-start">{{msg}}</p>
+  <p *ngIf="msg" class="text-red-500 font-medium text-start">{{msg}}</p>
   <button type="submit" class="bg-red-600  py-3 px-4 text-white rounded">Submit</button>
 </form>
 </div>

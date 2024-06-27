@@ -6,7 +6,7 @@
   (click)="openDialog()"
   >+</button>
   <br>
-  <p *ngIf="Reports && Reports.length === 0 ;else showAll " class="text-center">pas de rapports disponible</p>
+  <p *ngIf="Reports && Reports.length === 0 ;else showAll " class="text-center font-semibold">pas de rapports disponible</p>
   <ng-template #showAll>
   <table class="mx-auto mt-5 w-3/4">
     <thead>
@@ -17,12 +17,11 @@
     <tbody>
       <tr *ngFor="let report of Reports" class=" border-b-2 border-b-black">
       <th >{{report.title}}</th>
-      <th>12/12/2024</th>
-      <th><a [href]="pdfSrc" download="file.pdf" color="warn" mat-button>View Report</a></th>
-      <a [attr.href]="getReportPath(report.Report_Path)" download="file.pdf">Download Report</a>
-
-        </tr>
+      <th>{{report.Date?.date | date}}</th>
+      <th>
+        <a [href]="BackendApi + report.Repport_Path " color="warn" mat-button download="report.pdf">View Report</a>
+      </th>
+      </tr>
     </tbody>
   </table>
 </ng-template>
-

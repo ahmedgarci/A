@@ -28,6 +28,8 @@ export class AuthComponent {
           this.router.navigate(["/Admin"])
          }else if ( response === "TECHNICIEN"){
           this.router.navigate(["/Techniciens/Publish"])
+         }else if( response === "CLIENT"){
+          this.router.navigate(['/Client'])
          }
 
     },

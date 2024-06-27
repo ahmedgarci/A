@@ -14,5 +14,8 @@ export class AuthService {
    return this.HttpClient.post(this.BackUrl,{"email":email,"password":password},{withCredentials:true})
   }
 
+  getCureentUser(){
+    return this.HttpClient.get(this.BackUrl+"/getCurrentUser",{withCredentials:true})
+  }
 
 }

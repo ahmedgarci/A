@@ -18,6 +18,9 @@ export class FormDBComponent {
   email:string="";
   table:string ="";
   DB:string="";
+  column1:string|null=null
+  column2:string|null=null
+  column3:string|null=null
   msg:string=""
 
   SendDemand(){
@@ -27,9 +30,11 @@ export class FormDBComponent {
       this.password,
       this.driver,
       this.DB,
-      this.email
+      this.email,
+      this.table,
+      [this.column1,this.column2,this.column3]
     ).subscribe({
-      next:()=>this.msg = `Demende envoyé a ${this.email}`   ,
+      next:(data)=> console.log(data)   ,
       error:(error)=>console.log(error)
     })
   }
