@@ -3,7 +3,7 @@ import { PublishFormComponent } from "../publish-form/publish-form.component";
 import { CommonModule } from "@angular/common";
 import { GenerateReportComponent } from '../generate-report/generate-report.component';
 import { RouterLink, ActivatedRoute } from '@angular/router';
-
+import { LogoutComponent } from '../../Authentication/auth/logout/logout.component';
 @Component({
   selector: 'app-tech',
   standalone: true,
@@ -12,6 +12,7 @@ import { RouterLink, ActivatedRoute } from '@angular/router';
     CommonModule,
     GenerateReportComponent,
     RouterLink,
+    LogoutComponent
   ],
   templateUrl: './tech.component.html',
   styleUrls: ['./tech.component.css']

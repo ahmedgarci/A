@@ -18,8 +18,8 @@ export class SingleDemandComponent {
 
   Generate(){
     this.TechnicianService.GenerateReport(this.singleDemande).subscribe({
-      next:(data)=>{
-              console.log(data);
+      next:()=>{
+              location.reload();
             },
             error: (error) => console.error(error)
           });

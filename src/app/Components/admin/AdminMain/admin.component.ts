@@ -4,13 +4,15 @@ import {AdminService} from "../AdminServices/admin.service";
 import  {ModalComponent} from "../modal/modal.component";
 import {MatButtonModule} from '@angular/material/button';
 import {  MatDialog} from '@angular/material/dialog';
+import { LogoutComponent } from '../../Authentication/auth/logout/logout.component';
 @Component({
   selector: 'app-admin',
   standalone: true,
   imports: [
     CommonModule,
     ModalComponent,
-    MatButtonModule
+    MatButtonModule,
+    LogoutComponent
   ],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'

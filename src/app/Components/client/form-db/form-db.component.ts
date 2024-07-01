@@ -33,10 +33,9 @@ export class FormDBComponent {
       this.DB,
       this.email,
       this.table,
-      this.Port,
       [this.column1,this.column2,this.column3]
     ).subscribe({
-      next:(data:any)=> this.msg=data ,
+      next:(data:any)=> this.msg = data ,
       error:(errorObject)=> this.error = errorObject.error
     })
   }

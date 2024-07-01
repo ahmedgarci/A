@@ -17,5 +17,9 @@ export class AuthService {
   getCureentUser(){
     return this.HttpClient.get(this.BackUrl+"/getCurrentUser",{withCredentials:true})
   }
+  logoutUser(){
+    return this.HttpClient.post(this.BackUrl+ "/Logout",{},{withCredentials:true})
+  }
+
 
 }

@@ -14,9 +14,9 @@ export class ClientService {
     return this.httpClient.get(`${this.Api}GetMyReports`,{withCredentials:true})
   }
 
-  DemanderGeneartionRapport(username:string,host:string,password:string,driver:string,DB:string,emailTech:string,table:string,Port:number,columns:any[]){
+  DemanderGeneartionRapport(username:string,host:string,password:string,driver:string,DB:string,emailTech:string,table:string,columns:any[]){
     return this.httpClient.post(`${this.Api}DemandeRapport`,
-    {username,host,password,driver,emailTech,DB,table,Port,columns},
+    {username,host,password,driver,emailTech,DB,table,columns},
     {withCredentials:true})
   }
 
