@@ -58,21 +58,46 @@
            type="text"
            placeholder="Database"
            [(ngModel)]="DB"
+           (ngModelChange)="HandleGetTables()"
     >
   </div>
 
-  <div class="mb-2">
-    <label class="block text-gray-700 text-sm font-bold mb-2" for="table">
-      Table
+  <select (change)="HandleGetColNames($event)" *ngIf="allTables !== null && allTables.length > 0" >Select table :
+    <option *ngFor="let table of allTables" [value]="table">{{table}}</option>
+  </select>
+
+  <div>
+    <label *ngFor="let col of allColNames">
+      <input type="checkbox" [value]="col" (change)="onCheckboxChange($event,col)" >
+      {{col}}
     </label>
-    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-           name="table"
-           id="table"
-           type="text"
-           placeholder="Table"
-           [(ngModel)]="table"
-    >
   </div>
+
+
+  <p *ngIf="isLoading"> Loading...</p>
+  <div class="flex gap-2">
+    <input type="text"
+    class="border-2 border-black rounded-md "
+    placeholder="field"
+    name="field"
+    [(ngModel)]="field"
+
+    >
+    <input type="text" class="border-2  border-black rounded-md "
+    placeholder="operator"
+    name="operator"
+    [(ngModel)]="operation"
+
+    >
+    <input type="text"
+    class="border-2 border-black rounded-md "
+    name="condition"
+    placeholder="condition"
+    [(ngModel)]="condition"
+    >
+
+  </div>
+
   <div class="mb-2">
     <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
       Email Technician
@@ -84,23 +109,6 @@
            placeholder="Email"
            [(ngModel)]="email"
     >
-  </div>
-  <label class="block text-gray-700 text-sm font-bold" > Columns</label>
-  <div class="flex ">
-    <input type="text"
-    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-    [(ngModel)]="column1"
-    name="column1"
-    >
-    <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-    [(ngModel)]="column2"
-    name="column2"
-    >
-    <input type="text"
-    [(ngModel)]="column3"
-    name="column3"
-    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-
   </div>
   <p *ngIf="msg" class="text-green-600 font-medium ">{{msg}}</p>
   <p *ngIf="error" class="text-red-600 font-medium ">{{error}}</p>

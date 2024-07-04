@@ -22,14 +22,10 @@ export class ClientComponent implements OnInit {
   ngOnInit(): void {
      this.ClientService.getMyReports().subscribe({
       next:(response:any)=>{
-        console.log(response)
+
        this.Reports = [...response]},
       error:(errorResponse)=> console.log(errorResponse)
      })
-   //  this.ClientService.getMySources().subscribe({
-   //   next:(response)=>console.log(response),
-   //   error:(error)=>console.log(error)
-   //  })
   }
 
   openDialog(): void {
